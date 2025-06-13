@@ -14,7 +14,7 @@
     <div id="app" v-cloak>
         <header>
             <div class="container">
-                <h1 v-html="tripData.title">{{ tripData.title }}</h1>
+                <h1>{{ tripData.title }}</h1>
                 <p class="subtitle">{{ tripData.date }}</p>
             </div>
         </header>
@@ -144,21 +144,44 @@
         <section class="tools">
             <div class="container">
                 <h2><i class="fas fa-toolbox"></i> 建議工具小清單</h2>
+                <p class="tools-intro">首次訪港？點擊各工具卡片獲取詳細使用指南</p>
                 <div class="tools-grid">
-                    <div class="tool-card" v-for="(tool, index) in tripData.tools" :key="index">
+                    <div class="tool-card" v-for="(tool, index) in tripData.tools" :key="index" @click="showToolGuide(tool)">
                         <div class="tool-icon"><i :class="tool.icon"></i></div>
                         <div class="tool-details">
                             <h4>{{ tool.name }}</h4>
                             <p>{{ tool.description }}</p>
+                            <div class="tool-more">
+                                <span class="more-info"><i class="fas fa-info-circle"></i> 點擊了解更多</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="modal" v-if="showModal" @click="closeModal">
+            <div class="modal-content" @click.stop>
+                <span class="close-btn" @click="closeModal">&times;</span>
+                <div class="modal-header">
+                    <div class="modal-icon"><i :class="currentTool.icon"></i></div>
+                    <h3>{{ currentTool.name }}</h3>
+                </div>
+                <div class="modal-body" v-html="currentTool.guide"></div>
+                <div class="modal-footer" v-if="currentTool.downloadLink || currentTool.officialLink">
+                    <a :href="currentTool.officialLink" target="_blank" class="modal-btn primary" v-if="currentTool.officialLink">
+                        <i class="fas fa-external-link-alt"></i> 官方網站
+                    </a>
+                    <a :href="currentTool.downloadLink" target="_blank" class="modal-btn" v-if="currentTool.downloadLink">
+                        <i class="fas fa-download"></i> 下載指南
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <footer>
             <div class="container">
-                <p>© {{ new Date().getFullYear() }} 香港品勢公開賽行程 Design By BillHuang</p>
+                <p>© {{ new Date().getFullYear() }} 香港品勢公開賽行程</p>
             </div>
         </footer>
     </div>

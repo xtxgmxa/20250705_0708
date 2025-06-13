@@ -3,8 +3,10 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      currentDay: 0,
-      currentTime: new Date(),
+    currentDay: 0,
+    currentTime: new Date(),
+    showModal: false,
+    currentTool: {},
       tripData: {
         title: "2025香港品勢公開賽行程<br>7/5 - 7/8",
         date: "Design By BillHuang",
@@ -289,103 +291,310 @@ createApp({
           },
         ],
         tools: [
-          {
-            name: "MTR Mobile",
-            description: "港鐵官方 App，查地鐵站轉乘＋時間",
-            icon: "fas fa-subway",
-          },
-          {
-            name: "八達通卡",
-            description: "全員購買，小孩版八達通也可退卡",
-            icon: "fas fa-credit-card",
-          },
-          {
-            name: "天文台 App",
-            description: "可查每小時降雨機率，夏季必備",
-            icon: "fas fa-cloud-rain",
-          },
-          {
-            name: "Disneyland HK App",
-            description: "查排隊時間、餐廳、設施即時動態",
-            icon: "fas fa-hat-wizard",
-          },
+            {
+                name: "MTR Mobile",
+                description: "港鐵官方 App，查地鐵站轉乘＋時間",
+                icon: "fas fa-subway",
+                officialLink: "https://www.mtr.com.hk/en/customer/mobile/mtr-mobile.html",
+                downloadLink: null,
+                guide: `
+                  <h4>香港地鐵使用指南</h4>
+                  <p>MTR Mobile 是香港地鐵官方應用程式，為首次訪港遊客提供便捷的交通規劃工具。</p>
+                  
+                  <h4>主要功能：</h4>
+                  <ul>
+                    <li><strong>路線規劃</strong>：輸入起點和終點，獲取最佳路線建議</li>
+                    <li><strong>實時列車資訊</strong>：查看列車到站時間和服務狀態</li>
+                    <li><strong>站內設施地圖</strong>：幫助您找到出口、洗手間、商店等</li>
+                    <li><strong>票價查詢</strong>：計算不同站點間的車費</li>
+                  </ul>
+                  
+                  <div class="tip">
+                    <strong>小貼士：</strong> 香港地鐵非常準時且高效，是遊覽香港最便捷的交通方式。避開早晚高峰時段（7:30-9:30 和 17:30-19:30）可獲得更舒適的乘車體驗。
+                  </div>
+                  
+                  <h4>如何使用香港地鐵：</h4>
+                  <ol>
+                    <li>購買單程票或八達通卡（推薦使用八達通卡）</li>
+                    <li>跟隨站內指示牌前往對應月台</li>
+                    <li>注意列車到站時的廣播和電子顯示屏</li>
+                    <li>上車時先讓乘客下車，再有序上車</li>
+                    <li>到達目的地後，跟隨出口指示離開</li>
+                  </ol>
+                  
+                  <div class="warning">
+                    <strong>注意：</strong> 香港地鐵禁止飲食，違者可被罰款。車廂內請保持安靜，並為有需要人士讓座。
+                  </div>
+                `,
+              },
+              {
+                name: "八達通卡",
+                description: "全員購買，小孩版八達通也可退卡",
+                icon: "fas fa-credit-card",
+                officialLink: "https://www.octopus.com.hk/tc/consumer/index.html",
+                downloadLink: null,
+                guide: `
+                  <h4>八達通卡使用指南</h4>
+                  <p>八達通卡是香港最通用的電子支付卡，可用於交通、購物、餐飲等多種場合，是訪港遊客的必備工具。</p>
+                  
+                  <h4>卡片種類：</h4>
+                  <ul>
+                    <li><strong>標準八達通</strong>：成人使用，可退還押金</li>
+                    <li><strong>小童八達通</strong>：12歲以下兒童使用，享有半價優惠</li>
+                    <li><strong>遊客八達通</strong>：特別為遊客設計，有效期內無限次搭乘指定交通工具</li>
+                  </ul>
+                  
+                  <h4>如何購買：</h4>
+                  <p>您可以在以下地點購買八達通卡：</p>
+                  <ul>
+                    <li>機場抵港大堂的顧客服務中心</li>
+                    <li>各港鐵站的顧客服務中心</li>
+                    <li>便利店（7-11、OK便利店等）</li>
+                  </ul>
+                  
+                  <h4>如何使用：</h4>
+                  <p>只需將卡片輕觸讀卡器，無需插入。系統會自動扣除相應費用。</p>
+                  
+                  <div class="tip">
+                    <strong>小貼士：</strong> 八達通卡可以增值（充值）。您可以在便利店、港鐵站或指定的增值機增值，最低增值額為HK$50。
+                  </div>
+                  
+                  <h4>退卡方式：</h4>
+                  <p>離開香港前，您可以在機場或港鐵站的顧客服務中心退還八達通卡，並取回押金和剩餘金額（會扣除手續費HK$9）。</p>
+                  
+                  <div class="warning">
+                    <strong>注意：</strong> 請保管好您的八達通卡，遺失不補。卡內餘額不足時將無法使用。
+                  </div>
+                `,
+              },
+              {
+                name: "天文台 App",
+                description: "可查每小時降雨機率，夏季必備",
+                icon: "fas fa-cloud-rain",
+                officialLink: "https://www.hko.gov.hk/tc/wxinfo/myobservatory.htm",
+                downloadLink: null,
+                guide: `
+                  <h4>香港天文台 App 使用指南</h4>
+                  <p>香港夏季多雨且潮濕，天氣變化快速。天文台官方應用程式可幫助您隨時了解天氣狀況，做好出行準備。</p>
+                  
+                  <h4>主要功能：</h4>
+                  <ul>
+                    <li><strong>9天天氣預報</strong>：查看未來幾天的天氣趨勢</li>
+                    <li><strong>降雨預報</strong>：提供未來兩小時的降雨概率</li>
+                    <li><strong>熱帶氣旋資訊</strong>：颱風季節必備</li>
+                    <li><strong>天氣警告</strong>：及時發布暴雨、強風等警告信號</li>
+                  </ul>
+                  
+                  <h4>香港天氣特點：</h4>
+                  <ul>
+                    <li><strong>夏季（6-9月）</strong>：炎熱潮濕，經常有雷暴雨，偶有颱風</li>
+                    <li><strong>秋季（10-12月）</strong>：天氣較為穩定，溫和乾燥</li>
+                    <li><strong>冬季（1-2月）</strong>：較為涼爽，偶有寒流</li>
+                    <li><strong>春季（3-5月）</strong>：溫暖多霧，濕度較高</li>
+                  </ul>
+                  
+                  <div class="tip">
+                    <strong>小貼士：</strong> 香港的室內場所（如商場、地鐵、餐廳）通常開很強的冷氣，即使在夏季也建議隨身攜帶一件薄外套。
+                  </div>
+                  
+                  <h4>雨天出行建議：</h4>
+                  <p>香港雨天交通擁堵嚴重，建議：</p>
+                  <ul>
+                    <li>提前出門，預留更多交通時間</li>
+                    <li>優先選擇地鐵而非巴士或的士</li>
+                    <li>攜帶折疊傘或輕便雨衣</li>
+                    <li>穿著防滑鞋履，香港雨天路面較滑</li>
+                  </ul>
+                `,
+              },
+              {
+                name: "Disneyland HK App",
+                description: "查排隊時間、餐廳、設施即時動態",
+                icon: "fas fa-hat-wizard",
+                officialLink: "https://www.hongkongdisneyland.com/zh-hk/mobile-app/",
+                downloadLink: null,
+                guide: `
+                  <h4>香港迪士尼樂園 App 使用指南</h4>
+                  <p>香港迪士尼樂園官方應用程式是遊玩樂園的必備工具，可幫助您規劃行程、查看等候時間，最大化您的遊園體驗。</p>
+                  
+                  <h4>主要功能：</h4>
+                  <ul>
+                    <li><strong>實時等候時間</strong>：查看各遊樂設施的排隊情況</li>
+                    <li><strong>互動地圖</strong>：輕鬆導航園區</li>
+                    <li><strong>表演時間表</strong>：不錯過精彩演出</li>
+                    <li><strong>餐廳預約</strong>：提前預訂餐廳，避免排隊</li>
+                  </ul>
+                  
+                  <h4>遊園小貼士：</h4>
+                  <ul>
+                    <li><strong>早到早玩</strong>：開園時到達，體驗更多設施</li>
+                    <li><strong>反向遊園</strong>：從園區後方開始，避開人流</li>
+                    <li><strong>用餐錯峰</strong>：避開12:00-13:30的用餐高峰期</li>
+                    <li><strong>雨天優勢</strong>：雨天遊客較少，等候時間更短</li>
+                  </ul>
+                  
+                  <div class="tip">
+                    <strong>小貼士：</strong> 香港迪士尼較小，一天時間足夠遊玩大部分設施。建議提前在App上查看當天的表演時間，合理安排行程。
+                  </div>
+                  
+                  <h4>推薦設施（適合小朋友）：</h4>
+                  <ul>
+                    <li>小小世界 (It's a Small World)</li>
+                    <li>小熊維尼歷險之旅 (The Many Adventures of Winnie the Pooh)</li>
+                    <li>灰熊山谷 (Grizzly Gulch)</li>
+                    <li>反斗奇兵大本營 (Toy Story Land)</li>
+                    <li>米奇幻想曲 (Mickey's PhilharMagic)</li>
+                  </ul>
+                  
+                  <div class="warning">
+                    <strong>注意：</strong> 香港夏季炎熱潮濕，請攜帶防曬用品、水壺和雨具。部分設施有身高限制，請提前查詢。
+                  </div>
+                `,
+              },
+              {
+                name: "香港交通指南",
+                description: "首次訪港必讀交通攻略",
+                icon: "fas fa-map-marked-alt",
+                officialLink: "https://www.discoverhongkong.com/tc/plan/transportation.html",
+                downloadLink:
+                  "https://www.discoverhongkong.com/content/dam/dhk/intl/plan/transport/HK-Transport-Guide-tc.pdf",
+                guide: `
+                  <h4>香港交通綜合指南</h4>
+                  <p>香港擁有全球最高效的公共交通系統之一，了解各種交通工具的特點和使用方法，將幫助您更輕鬆地遊覽香港。</p>
+                  
+                  <h4>主要交通工具：</h4>
+                  
+                  <h4>1. 港鐵（地鐵）</h4>
+                  <p><strong>特點：</strong> 快速、準時、覆蓋範圍廣</p>
+                  <p><strong>費用：</strong> 視乎路程，約HK$4-20</p>
+                  <p><strong>運行時間：</strong> 06:00-01:00</p>
+                  <p><strong>適合：</strong> 大多數市區景點和跨區移動</p>
+                  
+                  <h4>2. 巴士</h4>
+                  <p><strong>特點：</strong> 路線眾多，可達港鐵不覆蓋的地區</p>
+                  <p><strong>費用：</strong> 約HK$3-20</p>
+                  <p><strong>運行時間：</strong> 因路線而異，主要路線24小時運行</p>
+                  <p><strong>適合：</strong> 前往郊區景點或體驗本地生活</p>
+                  
+                  <h4>3. 小巴</h4>
+                  <p><strong>特點：</strong> 分綠色（固定路線）和紅色（彈性路線）</p>
+                  <p><strong>費用：</strong> 約HK$3-30</p>
+                  <p><strong>運行時間：</strong> 因路線而異</p>
+                  <p><strong>適合：</strong> 前往小眾景點或住宅區</p>
+                  
+                  <h4>4. 電車</h4>
+                  <p><strong>特點：</strong> 香港特色交通，僅行駛於港島北部</p>
+                  <p><strong>費用：</strong> 固定HK$2.6</p>
+                  <p><strong>運行時間：</strong> 06:00-00:00</p>
+                  <p><strong>適合：</strong> 短途觀光或體驗懷舊氛圍</p>
+                  
+                  <h4>5. 的士（計程車）</h4>
+                  <p><strong>特點：</strong> 分紅色（市區）、綠色（新界）和藍色（大嶼山）</p>
+                  <p><strong>費用：</strong> 起錶HK$24起，視距離而定</p>
+                  <p><strong>運行時間：</strong> 24小時</p>
+                  <p><strong>適合：</strong> 攜帶大型行李或多人同行時</p>
+                  
+                  <h4>6. 渡輪</h4>
+                  <p><strong>特點：</strong> 連接港島、九龍和離島</p>
+                  <p><strong>費用：</strong> 約HK$2-40，視航線而定</p>
+                  <p><strong>運行時間：</strong> 因航線而異</p>
+                  <p><strong>適合：</strong> 前往離島或欣賞海港風光</p>
+                  
+                  <div class="tip">
+                    <strong>交通規劃建議：</strong> 使用Google地圖或CityMapper應用程式規劃路線，這些應用會綜合考慮各種交通工具，為您提供最佳出行方案。
+                  </div>
+                  
+                  <div class="warning">
+                    <strong>注意事項：</strong> 香港交通工具上禁止飲食。搭乘扶手電梯時請「左行右立」。乘坐的士時，請確認司機已開啟計費錶。
+                  </div>
+                `,
+              },
         ],
       },
     }
   },
   created() {
     // 自動選擇當天日期頁籤
-    this.selectCurrentDay();
+    this.selectCurrentDay()
 
     // 每分鐘更新一次當前時間
-    this.updateCurrentTime();
-    setInterval(this.updateCurrentTime, 60000);
+    this.updateCurrentTime()
+    setInterval(this.updateCurrentTime, 60000)
   },
   methods: {
     selectCurrentDay() {
-      const today = new Date();
-      
+      const today = new Date()
+
       // 檢查今天是否在行程日期範圍內
       for (let i = 0; i < this.tripData.days.length; i++) {
         // 從日期字符串中提取日期
-        const dateStr = this.tripData.days[i].date;
-        const day = parseInt(dateStr.substring(2, 4)); // 提取日期部分
-        const month = 7; // 7月
-        const year = 2025; // 2025年
-        
+        const dateStr = this.tripData.days[i].date
+        const day = Number.parseInt(dateStr.substring(2, 4)) // 提取日期部分
+        const month = 7 // 7月
+        const year = 2025 // 2025年
+
         // 創建日期對象
-        const tripDate = new Date(year, month - 1, day);
-        
+        const tripDate = new Date(year, month - 1, day)
+
         // 如果今天日期與行程日期相同，則選擇該頁籤
         if (
           today.getFullYear() === tripDate.getFullYear() &&
           today.getMonth() === tripDate.getMonth() &&
           today.getDate() === tripDate.getDate()
         ) {
-          this.currentDay = i;
-          break;
+          this.currentDay = i
+          break
         }
       }
     },
     updateCurrentTime() {
-      this.currentTime = new Date();
+      this.currentTime = new Date()
     },
     isCurrentActivity(activity) {
       // 從活動時間字符串中提取時間
-      const timeStr = activity.time;
-      let startHour, startMinute, endHour, endMinute;
-      
+      const timeStr = activity.time
+      let startHour, startMinute, endHour, endMinute
+
       // 處理有範圍的時間 (例如 "13:30~18:00")
       if (timeStr.includes("~")) {
-        const times = timeStr.split("~");
-        const startTime = times[0].trim().split(":");
-        const endTime = times[1].trim().split(":");
-        
-        startHour = parseInt(startTime[0]);
-        startMinute = parseInt(startTime[1]);
-        endHour = parseInt(endTime[0]);
-        endMinute = parseInt(endTime[1]);
+        const times = timeStr.split("~")
+        const startTime = times[0].trim().split(":")
+        const endTime = times[1].trim().split(":")
+
+        startHour = Number.parseInt(startTime[0])
+        startMinute = Number.parseInt(startTime[1])
+        endHour = Number.parseInt(endTime[0])
+        endMinute = Number.parseInt(endTime[1])
       } else {
         // 處理單一時間點 (例如 "10:05")
-        const time = timeStr.split(":");
-        startHour = parseInt(time[0]);
-        startMinute = parseInt(time[1]);
-        
+        const time = timeStr.split(":")
+        startHour = Number.parseInt(time[0])
+        startMinute = Number.parseInt(time[1])
+
         // 如果沒有結束時間，假設活動持續1小時
-        endHour = startHour + 1;
-        endMinute = startMinute;
+        endHour = startHour + 1
+        endMinute = startMinute
       }
-      
+
       // 獲取當前時間
-      const currentHour = this.currentTime.getHours();
-      const currentMinute = this.currentTime.getMinutes();
-      
+      const currentHour = this.currentTime.getHours()
+      const currentMinute = this.currentTime.getMinutes()
+
       // 檢查當前時間是否在活動時間範圍內
-      const currentTimeValue = currentHour * 60 + currentMinute;
-      const startTimeValue = startHour * 60 + startMinute;
-      const endTimeValue = endHour * 60 + endMinute;
-      
-      return currentTimeValue >= startTimeValue && currentTimeValue <= endTimeValue;
-    }
-  }
-}).mount("#app");
+      const currentTimeValue = currentHour * 60 + currentMinute
+      const startTimeValue = startHour * 60 + startMinute
+      const endTimeValue = endHour * 60 + endMinute
+
+      return currentTimeValue >= startTimeValue && currentTimeValue <= endTimeValue
+    },
+    showToolGuide(tool) {
+      this.currentTool = tool
+      this.showModal = true
+      document.body.style.overflow = "hidden" // 防止背景滾動
+    },
+    closeModal() {
+      this.showModal = false
+      document.body.style.overflow = "" // 恢復背景滾動
+    },
+  },
+}).mount("#app")
