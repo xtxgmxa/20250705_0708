@@ -114,6 +114,26 @@
     border-radius: 8px;
     /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
   }
+  .fade-zoom-in {
+    opacity: 0;
+    transform: scale(1.2);
+    animation: fadeZoom 2.5s ease-out forwards;
+  }
+  
+  @keyframes fadeZoom {
+    0% {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
   header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
@@ -548,19 +568,19 @@
   @media (max-width: 480px) {
     header *{box-sizing:border-box;}
     .header-content{padding: 0rem;max-width: 100%;}
+    header h1,header .subtitle{
+        background: var(--dark);
+        color: var(--secondary-light);
+        opacity: 0.85;
+    }
     header h1 {
       font-size: 1.40rem;
         margin-bottom: 18rem;
         padding: 0 0.5rem;
-        background: var(--primary-dark);
-        color: var(--secondary-light);
-        opacity: 0.9;
     }
     header .subtitle {
         font-size: 1.0rem;
-        background: var(--primary-dark);
-        color: var(--secondary-light);
-        opacity: 0.8;
+        
     }
     .day-selector button {
       padding: 8px 15px;
