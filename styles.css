@@ -1,0 +1,628 @@
+:root {
+    --primary: #a8071a;
+    --primary-light: #cf1322;
+    --primary-dark: #820014;
+    --secondary: #d4b106;
+    --secondary-light: #f9e288;
+    --accent: #13a8a8;
+    --accent-light: #87e8de;
+    --light: #fff9f0;
+    --dark: #262626;
+    --gray: #595959;
+    --light-gray: #f5f5f5;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+    --highlight: #ff9800;
+    --highlight-light: #ffe0b2;
+  }
+  
+  /* 只添加當前活動高亮樣式 */
+  .current-activity .timeline-time {
+    color: var(--highlight);
+    font-size: 1.2rem;
+    animation: pulse 2s infinite;
+  }
+  
+  .current-activity .timeline-content {
+    background-color: var(--highlight-light);
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);
+    transform: translateY(-3px);
+  }
+  
+  .current-activity .timeline-content::before {
+    background-color: var(--highlight);
+    width: 20px;
+    height: 20px;
+    top: 13px;
+    left: -32px;
+  }
+  
+  .current-activity .timeline-icon {
+    color: var(--highlight);
+    background-color: var(--white);
+    transform: scale(1.1);
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Noto Sans TC", sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--light);
+  }
+  
+  [v-cloak] {
+    display: none;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+  
+  /* Header Styles */
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  header .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  /* Flight Info Styles */
+  .flight-info {
+    margin-top: -20px;
+    padding-bottom: 40px;
+  }
+  
+  .flight-info h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-align: center;
+    margin:2rem 0;
+  }
+  
+  .flight-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .flight-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  
+  .flight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .flight-header {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .flight-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  
+  .flight-date {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .flight-body {
+    padding: 20px;
+  }
+  
+  .flight-airline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+  }
+  
+  .airline-logo {
+    height: 30px;
+    width: auto;
+  }
+  
+  .flight-number {
+    font-weight: 500;
+    color: var(--dark);
+    margin-left: auto;
+  }
+  
+  .flight-route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .flight-city {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .flight-city .time {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  
+  .flight-city .city {
+    font-size: 0.9rem;
+    color: var(--dark);
+    font-weight: 500;
+  }
+  
+  .flight-duration {
+    flex: 2;
+    text-align: center;
+    position: relative;
+  }
+  
+  .duration-line {
+    height: 2px;
+    background-color: var(--primary-light);
+    position: relative;
+    margin: 0 15px;
+  }
+  
+  .duration-line i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary);
+    background-color: var(--white);
+    padding: 0 10px;
+  }
+  
+  .duration-time {
+    font-size: 0.8rem;
+    color: var(--dark);
+    margin-top: 5px;
+    font-weight: 500;
+  }
+  
+  /* Itinerary Styles */
+  .itinerary {
+    padding: 40px 0;
+  }
+  
+  .itinerary h2 {
+    color: var(--primary);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  .day-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .day-selector button {
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .day-selector button.active {
+    background-color: var(--primary);
+    color: var(--white);
+  }
+  
+  .day-selector button:hover:not(.active) {
+    background-color: var(--secondary-light);
+  }
+  
+  .day-content {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+  }
+  
+  .day-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .day-header h3 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+  }
+  
+  .day-theme {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    font-weight: 500;
+  }
+  
+  /* Timeline Styles */
+  .timeline {
+    position: relative;
+    margin-left: 20px;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--accent-light);
+  }
+  
+  .timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .timeline-time {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+  }
+  
+  .timeline-content {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    position: relative;
+  }
+  
+  .timeline-content::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 15px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    border: 3px solid var(--white);
+    box-shadow: var(--shadow);
+  }
+  
+  .timeline-icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+  }
+  
+  .timeline-details {
+    flex: 1;
+  }
+  
+  .timeline-details h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+  
+  .activity-location,
+  .activity-duration,
+  .activity-notes {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: var(--dark);
+  }
+  
+  .activity-location i,
+  .activity-duration i,
+  .activity-notes i {
+    color: var(--primary);
+    margin-right: 5px;
+    width: 16px;
+    text-align: center;
+  }
+  
+  .activity-notes {
+    background-color: var(--secondary-light);
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+  
+  .day-note {
+    margin-top: 30px;
+    background-color: var(--accent-light);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .note-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+  }
+  
+  .note-content {
+    flex: 1;
+    font-size: 0.95rem;
+  }
+  
+  /* Tools Styles */
+  .tools {
+    padding: 60px 0;
+    background-color: var(--light-gray);
+  }
+  
+  .tools h2 {
+    color: var(--primary);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .tool-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: var(--transition);
+  }
+  
+  .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .tool-icon {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tool-details {
+    flex: 1;
+  }
+  
+  .tool-details h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--dark);
+  }
+  
+  .tool-details p {
+    font-size: 0.9rem;
+    color: var(--dark);
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    header {
+      padding: 40px 0;
+    }
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    .flight-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .day-content {
+      padding: 20px;
+    }
+  
+    .timeline-content {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .timeline-icon {
+      width: 30px;
+      height: 30px;
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+  
+    .day-selector button {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+      width: calc(100% / 2.1);
+    }
+  
+    .day-header h3 {
+      font-size: 1.4rem;
+    }
+  
+    .timeline {
+      margin-left: 10px;
+    }
+  
+    .timeline-item {
+      padding-left: 25px;
+    }
+  
+    .timeline-content::before {
+      left: -25px;
+      width: 12px;
+      height: 12px;
+    }
+  
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Animation Styles */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .day-content {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .flight-card,
+  .tool-card,
+  .timeline-item {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .flight-card:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .timeline-item:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .timeline-item:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .timeline-item:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+  .timeline-item:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+  .timeline-item:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+  .timeline-item:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+  .timeline-item:nth-child(7) {
+    animation-delay: 0.35s;
+  }
+  .timeline-item:nth-child(8) {
+    animation-delay: 0.4s;
+  }
+  .timeline-item:nth-child(9) {
+    animation-delay: 0.45s;
+  }
+  .timeline-item:nth-child(10) {
+    animation-delay: 0.5s;
+  }
+  
+  .tool-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .tool-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .tool-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .tool-card:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  

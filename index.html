@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港品勢公開賽行程 | 7/5-7/8</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <header>
+            <div class="container">
+                <h1 v-html="tripData.title">{{ tripData.title }}</h1>
+                <p class="subtitle">{{ tripData.date }}</p>
+            </div>
+        </header>
+
+        <section class="flight-info">
+            <div class="container">
+                <h2><i class="fas fa-plane"></i> 機票資訊</h2>
+                <div class="flight-cards">
+                    <div class="flight-card departure">
+                        <div class="flight-header">
+                            <span class="flight-label">去程</span>
+                            <span class="flight-date">{{ tripData.flights.departure.date }}</span>
+                        </div>
+                        <div class="flight-body">
+                            <div class="flight-airline">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Cathay_Pacific_logo.svg/250px-Cathay_Pacific_logo.svg.png" alt="國泰航空" class="airline-logo">
+                                <span>{{ tripData.flights.departure.airline }}</span>
+                                <span class="flight-number">{{ tripData.flights.departure.flightNumber }}</span>
+                            </div>
+                            <div class="flight-route">
+                                <div class="flight-city">
+                                    <div class="time">{{ tripData.flights.departure.departureTime }}</div>
+                                    <div class="city">{{ tripData.flights.departure.departureCity }}</div>
+                                </div>
+                                <div class="flight-duration">
+                                    <div class="duration-line">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="duration-time">{{ tripData.flights.departure.duration }}</div>
+                                </div>
+                                <div class="flight-city">
+                                    <div class="time">{{ tripData.flights.departure.arrivalTime }}</div>
+                                    <div class="city">{{ tripData.flights.departure.arrivalCity }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flight-card return">
+                        <div class="flight-header">
+                            <span class="flight-label">回程</span>
+                            <span class="flight-date">{{ tripData.flights.return.date }}</span>
+                        </div>
+                        <div class="flight-body">
+                            <div class="flight-airline">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Cathay_Pacific_logo.svg/250px-Cathay_Pacific_logo.svg.png" alt="國泰航空" class="airline-logo">
+                                <span>{{ tripData.flights.return.airline }}</span>
+                                <span class="flight-number">{{ tripData.flights.return.flightNumber }}</span>
+                            </div>
+                            <div class="flight-route">
+                                <div class="flight-city">
+                                    <div class="time">{{ tripData.flights.return.departureTime }}</div>
+                                    <div class="city">{{ tripData.flights.return.departureCity }}</div>
+                                </div>
+                                <div class="flight-duration">
+                                    <div class="duration-line">
+                                        <i class="fas fa-plane fa-flip-horizontal"></i>
+                                    </div>
+                                    <div class="duration-time">{{ tripData.flights.return.duration }}</div>
+                                </div>
+                                <div class="flight-city">
+                                    <div class="time">{{ tripData.flights.return.arrivalTime }}</div>
+                                    <div class="city">{{ tripData.flights.return.arrivalCity }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="itinerary">
+            <div class="container">
+                <h2><i class="fas fa-calendar-alt"></i> 行程安排</h2>
+                
+                <div class="day-selector">
+                    <button 
+                        v-for="(day, index) in tripData.days" 
+                        :key="index"
+                        :class="{ active: currentDay === index }"
+                        @click="currentDay = index">
+                        {{ day.date }}
+                    </button>
+                </div>
+
+                <div class="day-content" v-if="tripData.days[currentDay]">
+                    <div class="day-header">
+                        <h3>{{ tripData.days[currentDay].title }}</h3>
+                        <p class="day-theme">{{ tripData.days[currentDay].theme }}</p>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div 
+                            class="timeline-item" 
+                            v-for="(activity, index) in tripData.days[currentDay].activities" 
+                            :key="index"
+                            :class="{ 'current-activity': isCurrentActivity(activity) }"
+                        >
+                            <div class="timeline-time">{{ activity.time }}</div>
+                            <div class="timeline-content">
+                                <div class="timeline-icon">
+                                    <i :class="activity.icon"></i>
+                                </div>
+                                <div class="timeline-details">
+                                    <h4>{{ activity.title }}</h4>
+                                    <div class="activity-location" v-if="activity.location">
+                                        <i class="fas fa-map-marker-alt"></i> {{ activity.location }}
+                                    </div>
+                                    <div class="activity-duration" v-if="activity.duration">
+                                        <i class="fas fa-clock"></i> {{ activity.duration }}
+                                    </div>
+                                    <div class="activity-notes" v-if="activity.notes">
+                                        <i class="fas fa-sticky-note"></i> {{ activity.notes }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-note" v-if="tripData.days[currentDay].dayNote">
+                        <div class="note-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="note-content">{{ tripData.days[currentDay].dayNote }}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tools">
+            <div class="container">
+                <h2><i class="fas fa-toolbox"></i> 建議工具小清單</h2>
+                <div class="tools-grid">
+                    <div class="tool-card" v-for="(tool, index) in tripData.tools" :key="index">
+                        <div class="tool-icon"><i :class="tool.icon"></i></div>
+                        <div class="tool-details">
+                            <h4>{{ tool.name }}</h4>
+                            <p>{{ tool.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>© {{ new Date().getFullYear() }} 香港品勢公開賽行程 Design By BillHuang</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
