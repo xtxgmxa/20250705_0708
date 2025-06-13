@@ -8,14 +8,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v01">
+    <link rel="stylesheet" href="styles.css?v2">
 </head>
 <body>
     <div id="app" v-cloak>
         <header>
+            <div class="header-background"></div>
             <div class="container">
-                <h1 v-html="tripData.title">{{ tripData.title }}</h1>
-                <p class="subtitle">{{ tripData.date }}</p>
+                <div class="header-content">
+                    <h1 v-html="tripData.title">{{ tripData.title }}</h1>
+                    <!-- <p class="subtitle">{{ tripData.date }}</p> -->
+                    <!-- <p class="designer">Design By BillHuang</p> -->
+                </div>
             </div>
         </header>
 
@@ -179,6 +183,8 @@
             </div>
         </div>
 
+<button id="back-to-top" title="Back to Top">TOP</button>
+
         <footer>
             <div class="container">
                 <p>© {{ new Date().getFullYear() }} 香港品勢公開賽行程</p>
@@ -187,6 +193,30 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js?v01"></script>
+    <script src="app.js?v2"></script>
+    <script>
+
+const backToTopButton = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+
+  if (window.scrollY > 200) { 
+    backToTopButton.classList.add('show');
+  } else {
+    backToTopButton.classList.remove('show');
+  }
+});
+
+
+backToTopButton.addEventListener('click', () => {
+  const scrollDuration = 500; 
+  const scrollStep = -window.scrollY / (scrollDuration / 16);
+  const scrollInterval = setInterval(() => {
+    window.scrollBy(0, scrollStep);
+    if (window.scrollY === 0) {
+      clearInterval(scrollInterval);
+    }
+  }, 16);
+});
+    </script>
 </body>
 </html>

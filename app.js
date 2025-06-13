@@ -8,7 +8,7 @@ createApp({
     showModal: false,
     currentTool: {},
       tripData: {
-        title: "2025香港品勢公開賽行程<br>7/5 - 7/8",
+        title: "2025香港品勢公開賽行程<br>7/5 - 7/8　<small class='subtitle'>Design By BillHuang</small>",
         date: "Design By BillHuang",
         flights: {
           departure: {

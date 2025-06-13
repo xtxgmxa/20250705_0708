@@ -83,24 +83,47 @@
   
   /* Header Styles */
   header {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    /* background: var(--primary-dark); */
     color: var(--white);
-    padding: 60px 0;
+    padding: 90px 0; /* 調整高度為更合適的大小 */
     text-align: center;
     position: relative;
     overflow: hidden;
   }
-  
+  .header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("./master.png");
+
+    background-size: cover;
+    background-position: center 40%;
+    background-blend-mode: multiply;
+    opacity: 0.75;
+    z-index: 1;
+  }
+  .header-content {
+    position: relative;
+    z-index: 2;
+    /* background-color: rgba(108, 93, 94, 0.55);  */
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 25px 40px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
+  }
   header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
     font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
   }
   
   header .subtitle {
     font-size: 1.2rem;
-    opacity: 0.9;
+    opacity: 0.9;text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
   }
   
   /* Flight Info Styles */
@@ -523,10 +546,22 @@
   }
   
   @media (max-width: 480px) {
+    header *{box-sizing:border-box;}
+    .header-content{padding: 0rem;max-width: 100%;}
     header h1 {
-      font-size: 1.8rem;
+      font-size: 1.40rem;
+        margin-bottom: 18rem;
+        padding: 0 0.5rem;
+        background: var(--primary-dark);
+        color: var(--secondary-light);
+        opacity: 0.9;
     }
-  
+    header .subtitle {
+        font-size: 1.0rem;
+        background: var(--primary-dark);
+        color: var(--secondary-light);
+        opacity: 0.8;
+    }
     .day-selector button {
       padding: 8px 15px;
       font-size: 0.9rem;
@@ -827,4 +862,22 @@
       max-height: 85vh;
     }
   }
+  #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 9999rem;
+    background-color: var(--dark);
+    color: white;
+    border: none;
+    padding: 1rem 0.5rem;
+    font-size: 18px;
+    cursor: pointer;
+    display: none; /* Hide the button by default */
+    z-index: 999;
+  }
   
+  /* Show the button when the user scrolls down */
+  #back-to-top.show {
+    display: block;
+  }
