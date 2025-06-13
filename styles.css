@@ -641,10 +641,13 @@
         color: white;
         
     }
+    .header-background{background-size:auto;
+    background-position: center;
+  }
     .img-L{z-index: 7;width: 13%;left: 0;top:0rem; }
     .img-R{z-index: 9;
       width: 17%;
-        right: 0;
+        right: -2rem;
         bottom:0rem;
     }
     .day-selector button {
