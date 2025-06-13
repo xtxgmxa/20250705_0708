@@ -98,7 +98,7 @@ createApp({
             date: "7/6（日）",
             dateObj: new Date(2025, 6, 6),
             title: "第2天",
-            theme: "跆拳道品勢公開賽＋夜景輕鬆遊",
+            theme: "跆拳道品勢公開賽",
             activities: [
               {
                 time: "08:00",
@@ -159,7 +159,7 @@ createApp({
             date: "7/7（一）",
             dateObj: new Date(2025, 6, 7),
             title: "第3天",
-            theme: "迪士尼全日遊（主打日）",
+            theme: "迪士尼全日遊",
             activities: [
               {
                 time: "07:30",
