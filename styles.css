@@ -542,7 +542,7 @@
     }
   
     header h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
   
     .flight-cards {
@@ -575,12 +575,12 @@
         opacity: 0.85;
     }
     header h1 {
-      font-size: 1.40rem;
+      font-size: 1.30rem;
         margin-bottom: 18rem;
         padding: 0 0.5rem;
     }
     header .subtitle {
-        font-size: 1.0rem;
+        font-size: 0.9rem;
         
     }
     .day-selector button {
