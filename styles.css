@@ -90,6 +90,13 @@
     position: relative;
     overflow: hidden;
   }
+  .img-center{ width: 32%;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+}
   .img-L, .img-R {
     width: 8%;
     position: absolute;
@@ -140,7 +147,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("./master.png?v2");
+    background-image: url("./master_bg.png");
 
     background-size:auto;
     background-position:center;
@@ -151,7 +158,7 @@
   }
   .header-content {
     position: relative;
-    z-index: 2;
+    z-index: 12;
     /* background-color: rgba(108, 93, 94, 0.55);  */
     max-width: 80%;
     margin: 0 auto;
@@ -583,6 +590,24 @@
   }
   
   /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .img-center{ width: 50%;
+      position: absolute;
+      top:90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9;
+  }
+  }
+  @media (max-width: 1024px) {
+    .img-center{ width: 60%;
+      position: absolute;
+      top:90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9;
+  }
+  }
   @media (max-width: 768px) {
     header {
       padding: 3rem 0 0 0;
@@ -591,6 +616,13 @@
     header h1 {
       font-size: 1.8rem;
     }
+    .img-center{ width: 50%;
+      position: absolute;
+      top:90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9;
+  }
   
     .flight-cards {
       flex-direction: column;
@@ -641,11 +673,18 @@
         color: white;
         
     }
-    .header-background{background-size:auto;
+    .header-background{background-size:cover;
     background-position: center;
   }
+  .img-center{ width: 100%;
+    position: absolute;
+    top:70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+}
     .img-L{z-index: 7;width: 13%;left: 0;top:0rem; }
-    .img-R{z-index: 9;
+    .img-R{z-index: 99;
       width: 17%;
         right: -2rem;
         bottom:0rem;
