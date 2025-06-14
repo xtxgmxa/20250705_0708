@@ -37,7 +37,7 @@ createApp({
             date: "7/5（六）",
             dateObj: new Date(2025, 6, 5), // 注意：月份是從0開始的，所以7月是6
             title: "第1天",
-            theme: "抵港→飯店→逛街輕鬆走",
+            theme: "抵港→飯店→逛街",
             activities: [
               {
                 time: "10:05",
@@ -68,7 +68,7 @@ createApp({
               {
                 time: "12:30",
                 timeObj: { hour: 12, minute: 30 },
-                title: "午餐、逛街、輕鬆放鬆",
+                title: "午餐、逛逛",
                 location: "沙田新城市廣場",
                 duration: "逛 2～3 小時，可晚餐",
                 icon: "fas fa-shopping-bag",
@@ -78,8 +78,8 @@ createApp({
                 time: "13:30~18:00",
                 timeObj: { hour: 13, minute: 30 },
                 endTimeObj: { hour: 18, minute: 0 },
-                title: "過磅＆賽前準備",
-                location: "飯店內活動／主辦單位通知",
+                title: "賽前準備",
+                location: "飯店內活動或等通知",
                 icon: "fas fa-weight",
                 notes: "預計可能沒有安排",
               },

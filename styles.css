@@ -99,31 +99,31 @@
 }
   .img-L, .img-R {
     width: 8%;
+  /* min-width: 120px;  */
     position: absolute;
-    opacity: 0;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
+    opacity: 1;
   }
 
   .img-L {
     left: 15rem;
     top: -5rem;
     transform: translateX(-100%) rotate(0deg);
-    animation-name: slideInLeft;
+    animation: slideInLeft 1s ease-out both;
+   
   }
 
   .img-R {
     right: 15rem;
     bottom:-6rem;
     transform: translateX(100%) rotate(30deg);
-    animation-name: slideInRight;
+    animation: slideInRight 1s ease-out both;
+    
   }
 
   @keyframes slideInLeft {
     0% {
       transform: translateX(-100%) rotate(0deg);
-      opacity: 0;
+      opacity: 1;
     }
     100% {
       transform: translateX(0) rotate(0deg);
@@ -134,7 +134,7 @@
   @keyframes slideInRight {
     0% {
       transform: translateX(100%) rotate(30deg);
-      opacity: 0;
+      opacity: 1;
     }
     100% {
       transform: translateX(0) rotate(30deg);
@@ -197,7 +197,7 @@
   
   
   header .subtitle {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     opacity: 0.9;text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
   }
   
@@ -590,7 +590,22 @@
   }
   
   /* Responsive Styles */
+  @media (max-width: 1500px) {
+    .img-L, .img-R {
+      z-index: 9;
+    }
+  }
   @media (max-width: 1200px) {
+    .img-L {
+      top:-1rem;
+      left: 8rem;
+      width: 10%;
+    }
+    .img-R {
+      bottom:-1rem;
+      right: 8rem;
+      width: 10%;
+    }
     .img-center{ width: 50%;
       position: absolute;
       top:90%;
@@ -600,6 +615,16 @@
   }
   }
   @media (max-width: 1024px) {
+    .img-L {
+      top:-1rem;
+      left: 4rem;
+      width: 10%;
+    }
+    .img-R {
+      bottom:-1rem;
+      right: 4rem;
+      width: 10%;
+    }
     .img-center{ width: 60%;
       position: absolute;
       top:90%;
@@ -614,8 +639,22 @@
     }
   
     header h1 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
+    header .subtitle {
+      font-size: 1.2rem;
+    }
+    .img-L {
+      top:-1rem;
+      left: 2rem;
+      width: 10%;
+    }
+    .img-R {
+      bottom:-1rem;
+      right: 2rem;
+      width: 10%;
+    }
+  
     .img-center{ width: 50%;
       position: absolute;
       top:90%;
@@ -716,6 +755,9 @@
     .tools-grid {
       grid-template-columns: 1fr;
     }
+    .flight-number {
+      writing-mode: vertical-rl;
+  }
   }
   
   /* Animation Styles */

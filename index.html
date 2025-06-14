@@ -200,8 +200,8 @@
     <script>
 
 const backToTopButton = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
 
+window.addEventListener('scroll', () => {
   if (window.scrollY > 200) { 
     backToTopButton.classList.add('show');
   } else {
@@ -209,17 +209,13 @@ window.addEventListener('scroll', () => {
   }
 });
 
-
 backToTopButton.addEventListener('click', () => {
-  const scrollDuration = 500; 
-  const scrollStep = -window.scrollY / (scrollDuration / 16);
-  const scrollInterval = setInterval(() => {
-    window.scrollBy(0, scrollStep);
-    if (window.scrollY === 0) {
-      clearInterval(scrollInterval);
-    }
-  }, 16);
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
+
     </script>
 </body>
 </html>
