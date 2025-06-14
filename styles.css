@@ -758,6 +758,9 @@
     .flight-number {
       writing-mode: vertical-rl;
   }
+  .airline-logo {
+    max-width: 80%;
+}
   }
   
   /* Animation Styles */
