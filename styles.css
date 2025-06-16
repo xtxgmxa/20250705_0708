@@ -335,7 +335,24 @@
   .itinerary {
     padding: 40px 0;
   }
-  .note_s{font-size: 1.0rem;color: var(--dark);}
+  .note_s{font-size: 1.0rem;color: var(--dark);position: relative;padding-bottom: 1.2rem;}
+  .note_s .arrow-down {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    border: solid #999;
+    border-width: 0 2px 2px 0;
+    animation: arrow-down-move 1s infinite;
+  }
+  
+  @keyframes arrow-down-move {
+    0% { transform: translateX(-50%) translateY(0) rotate(45deg); }
+    50% { transform: translateX(-50%) translateY(5px) rotate(45deg); }
+    100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
+  }
   .itinerary h2 {
     color: var(--primary);
     margin-bottom: 30px;
@@ -361,17 +378,44 @@
     color: var(--dark);
     cursor: pointer;
     transition: var(--transition);
+    
   }
   
   .day-selector button.active {
     background-color: var(--primary);
     color: var(--white);
   }
+
+  
+.day-selector button::before {
+  content: ""; /* 預設無箭頭 */
+  display: inline-block;
+  width: 0;
+  height: 0;
+}
+
+.day-selector button.active::before {
+  content: "";
+  border: solid #f3f376;
+  border-width: 2px 2px 0 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  animation: arrow-right-inline 1s infinite;
+  margin-right: 0.5rem;
+}
+  @keyframes arrow-right-inline {
+    0% { transform: translateX(0) rotate(45deg); }
+    50% { transform: translateX(4px) rotate(45deg); }
+    100% { transform: translateX(0) rotate(45deg); }
+  }
+
   
   .day-selector button:hover:not(.active) {
     background-color: var(--secondary-light);
   }
   
+
   .day-content {
     background-color: var(--white);
     border-radius: 12px;
