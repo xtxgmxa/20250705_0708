@@ -35,7 +35,7 @@
     width: 20px;
     height: 20px;
     top: 13px;
-    left: -32px;
+    left: -43px;
   }
   
   .current-activity .timeline-icon {
@@ -335,7 +335,7 @@
   .itinerary {
     padding: 40px 0;
   }
-  
+  .note_s{font-size: 1.0rem;color: var(--dark);}
   .itinerary h2 {
     color: var(--primary);
     margin-bottom: 30px;
@@ -441,7 +441,7 @@
   .timeline-content::before {
     content: "";
     position: absolute;
-    left: -30px;
+    left: -40px;
     top: 15px;
     width: 16px;
     height: 16px;
@@ -473,6 +473,7 @@
     margin-bottom: 8px;
     color: var(--dark);
   }
+  .timeline-details a{color: var(--dark);}
   
   .activity-location,
   .activity-duration,
@@ -589,6 +590,7 @@
     position: relative;
   }
   
+  .buysite li{margin-left: 1.5rem;}
   /* Responsive Styles */
   @media (max-width: 1500px) {
     .img-L, .img-R {
@@ -685,6 +687,7 @@
   }
   
   @media (max-width: 480px) {
+    .buysite li{margin-left: 1.8rem;}
     header *{box-sizing:border-box;}
     .header-content{padding: 0rem;max-width: 100%;}
     header h1,header .subtitle{      
@@ -747,9 +750,13 @@
     }
   
     .timeline-content::before {
-      left: -25px;
+      left: -33px;
       width: 12px;
       height: 12px;
+    }
+    .current-activity .timeline-content::before{
+      left: -37px;
+
     }
   
     .tools-grid {

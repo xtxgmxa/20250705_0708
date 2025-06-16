@@ -50,18 +50,18 @@ createApp({
               {
                 time: "10:45",
                 timeObj: { hour: 10, minute: 45 },
-                title: "包車接送到飯店",
-                location: "香港國際機場 → 麗豪酒店 (沙田)",
+                title: "搭車接送到飯店",
+                location: "香港國際機場 → <a href='https://maps.app.goo.gl/CYS6Pj6x2cy9hP8k8'>麗豪酒店 (沙田)</a>",
                 duration: "約 40 分鐘",
                 icon: "fas fa-shuttle-van",
-                notes: "建議 8 人共乘包車",
+                notes: "共乘搭車",
               },
               {
                 time: "11:30",
                 timeObj: { hour: 11, minute: 30 },
-                title: "辦理入住、稍作休息",
+                title: "辦理入住",
                 location: "麗豪酒店",
-                duration: "約 1 小時",
+                duration: "約 30-60 分鐘",
                 icon: "fas fa-hotel",
                 notes: "提前寄放行李可",
               },
@@ -69,7 +69,7 @@ createApp({
                 time: "12:30",
                 timeObj: { hour: 12, minute: 30 },
                 title: "午餐、逛逛",
-                location: "沙田新城市廣場",
+                location: "<a href='https://maps.app.goo.gl/pyTrZLWAd8EjbTZJA'>沙田新城市廣場</a>",
                 duration: "逛 2～3 小時，可晚餐",
                 icon: "fas fa-shopping-bag",
                 notes: "步行 or 的士10分",
@@ -78,8 +78,8 @@ createApp({
                 time: "13:30~18:00",
                 timeObj: { hour: 13, minute: 30 },
                 endTimeObj: { hour: 18, minute: 0 },
-                title: "賽前準備",
-                location: "飯店內活動或等通知",
+                title: "賽前/過磅準備",
+                location: "飯店內或等通知",
                 icon: "fas fa-weight",
                 notes: "預計可能沒有安排",
               },
@@ -87,9 +87,9 @@ createApp({
                 time: "19:00",
                 timeObj: { hour: 19, minute: 0 },
                 title: "自由活動／飯店休息",
-                location: "麗豪酒店或附近便利商店",
+                location: "<a href='https://maps.app.goo.gl/feVNWGoDKLsUFjcz6'>麗豪酒店或附近便利商店</a>",
                 icon: "fas fa-bed",
-                notes: "若孩子不累也可在附近公園走走",
+                notes: "若孩子不累也可在附近公園走走(<a href='https://maps.app.goo.gl/1fPmH375fWxwW4XC7'>圓角洲公園</a>、<a href='https://maps.app.goo.gl/ySKooiANEafFFq3o6'>崗背街休憩花園</a>、<a href='https://maps.app.goo.gl/A9MHoDdcqLYZKxQ9A'>沙田公園比較遠</a>)",
               },
             ],
             dayNote: "沙田新城市廣場內有 Lego Store、玩具反斗城、Donki、大型美食街與親子互動區，孩子放電又安全。",
@@ -314,7 +314,7 @@ createApp({
                   </div>
                   
                   <h4>如何使用香港地鐵：</h4>
-                  <ol>
+                  <ol class="buysite">
                     <li>購買單程票或八達通卡（推薦使用八達通卡）</li>
                     <li>跟隨站內指示牌前往對應月台</li>
                     <li>注意列車到站時的廣播和電子顯示屏</li>
