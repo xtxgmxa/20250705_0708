@@ -173,8 +173,8 @@ createApp({
               {
                 time: "09:00",
                 timeObj: { hour: 9, minute: 0 },
-                title: "入園排隊、開園前拍照<br />(入園開放時間可能在10:00或10:30)",
-                location: "香港迪士尼樂園",
+                title: "入園排隊、開園前拍照",
+                location: "香港迪士尼樂園<br />(入園開放時間可能在10:00或10:30)",
                 icon: "fas fa-camera",
                 notes: "提前 <a href='https://www.hongkongdisneyland.com/zh-hk/mobile-app/'>下載迪士尼App</a> 做行程規劃",
               },
