@@ -983,7 +983,7 @@
     padding: 20px;
     line-height: 1.6;
   }
-  
+  .modal-body a,.fa-link{color: var(--primary);}
   .modal-body h4 {
     color: var(--primary);
     margin: 20px 0 10px;
@@ -1014,6 +1014,7 @@
     border-radius: 8px;
     margin: 15px 0;
     border-left: 4px solid var(--secondary);
+    line-height: 2.0rem;
   }
   
   .modal-body .warning {

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v19">
+    <link rel="stylesheet" href="styles.css?v20">
 </head>
 <body>
     <div id="app" v-cloak>
@@ -129,7 +129,7 @@
                                     <i :class="activity.icon"></i>
                                 </div>
                                 <div class="timeline-details">
-                                    <h4>{{ activity.title }}</h4>
+                                    <h4 v-html="activity.title">{{ activity.title }}</h4>
                                     <div class="activity-location" v-if="activity.location" v-html="activity.location">
                                         <i class="fas fa-map-marker-alt"></i> {{ activity.location }}
                                     </div>
@@ -183,9 +183,9 @@
                     <a :href="currentTool.officialLink" target="_blank" class="modal-btn primary" v-if="currentTool.officialLink">
                         <i class="fas fa-external-link-alt"></i> 官方網站
                     </a>
-                    <a :href="currentTool.downloadLink" target="_blank" class="modal-btn" v-if="currentTool.downloadLink">
+                    <!-- <a :href="currentTool.downloadLink" target="_blank" class="modal-btn" v-if="currentTool.downloadLink">
                         <i class="fas fa-download"></i> 下載指南
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
@@ -200,7 +200,7 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js?v10"></script>
+    <script src="app.js?v11"></script>
     <script>
 
 const backToTopButton = document.getElementById('back-to-top');

@@ -50,7 +50,7 @@ createApp({
               {
                 time: "10:45",
                 timeObj: { hour: 10, minute: 45 },
-                title: "搭車接送到飯店",
+                title: "搭車接送到飯店(麗豪酒店 香港沙田大涌橋路34-36號)",
                 location: "香港國際機場 → <a href='https://maps.app.goo.gl/CYS6Pj6x2cy9hP8k8'>麗豪酒店 (沙田)</a>",
                 duration: "約 40 分鐘",
                 icon: "fas fa-shuttle-van",
@@ -60,7 +60,7 @@ createApp({
                 time: "11:30",
                 timeObj: { hour: 11, minute: 30 },
                 title: "辦理入住",
-                location: "麗豪酒店",
+                location: "麗豪酒店(香港沙田大涌橋路34-36號)",
                 duration: "約 30-60 分鐘",
                 icon: "fas fa-hotel",
                 notes: "提前寄放行李可",
@@ -101,10 +101,10 @@ createApp({
             theme: "跆拳道品勢公開賽",
             activities: [
               {
-                time: "08:00",
+                time: "06:00～08:00",
                 timeObj: { hour: 8, minute: 0 },
                 title: "早餐、出發至比賽會場",
-                location: "主辦單位安排",
+                location: "看教練是否會提早集合",
                 icon: "fas fa-utensils",
                 notes: "主力是比賽日",
               },
@@ -113,9 +113,9 @@ createApp({
                 timeObj: { hour: 8, minute: 30 },
                 endTimeObj: { hour: 17, minute: 0 },
                 title: "全日比賽行程",
-                location: "詳細由主辦單位安排",
+                location: "詳細看主辦單位",
                 icon: "fas fa-trophy",
-                notes: "依賽程休息安排調整",
+                notes: "屆時依賽程安排調整",
               },
               {
                 time: "17:30",
@@ -128,8 +128,8 @@ createApp({
               {
                 time: "18:30",
                 timeObj: { hour: 18, minute: 30 },
-                title: "晚餐＆星光大道散步",
-                location: "搭地鐵至「尖沙咀站」",
+                title: "晚餐＆<a href='https://maps.app.goo.gl/ERcaHCFPRronsCET8'>星光大道</a>散步",
+                location: "搭地鐵至「<a href='https://maps.app.goo.gl/Qt4PXt8XHEck82e79'>尖沙咀站 → 星光大道</a>」",
                 duration: "車程約 35 分鐘",
                 icon: "fas fa-star",
                 notes: "建議吃晚餐→海邊散步看燈光秀",
@@ -147,7 +147,7 @@ createApp({
                 time: "21:00",
                 timeObj: { hour: 21, minute: 0 },
                 title: "回飯店休息",
-                location: "地鐵「尖沙咀站 → 沙田站」",
+                location: "地鐵「<a href='https://maps.app.goo.gl/BBWKShFuUJDavMET7'>尖沙咀站 → 沙田站</a>」",
                 duration: "車程約 35 分鐘",
                 icon: "fas fa-subway",
                 notes: "結束舒適行程",
@@ -162,13 +162,13 @@ createApp({
             theme: "迪士尼全日遊",
             activities: [
               {
-                time: "07:30",
+                time: "06:00～07:30",
                 timeObj: { hour: 7, minute: 30 },
                 title: "飯店早餐＋準備出發",
-                location: "麗豪酒店 → 迪士尼",
-                duration: "地鐵轉乘約 1 小時",
+                location: "<a href='https://maps.app.goo.gl/nwsYXYRxmE9Upbtc7'>麗豪酒店 → 迪士尼</a>",
+                duration: "地鐵轉乘約1小時／或叫UBER約30分鐘",
                 icon: "fas fa-utensils",
-                notes: "沙田站→南昌轉乘→迪士尼站",
+                notes: "如搭地鐵：沙田站→南昌轉乘→迪士尼站",
               },
               {
                 time: "09:00",
@@ -176,7 +176,7 @@ createApp({
                 title: "入園排隊、開園前拍照",
                 location: "香港迪士尼樂園",
                 icon: "fas fa-camera",
-                notes: "提前下載迪士尼 App 做行程規劃",
+                notes: "提前 <a href='https://www.hongkongdisneyland.com/zh-hk/mobile-app/'>下載迪士尼App</a> 做行程規劃",
               },
               {
                 time: "09:30～17:00",
@@ -210,7 +210,7 @@ createApp({
                 time: "20:00",
                 timeObj: { hour: 20, minute: 0 },
                 title: "回飯店休息",
-                location: "迪士尼站 → 沙田站",
+                location: "迪士尼站 → 沙田站或叫UBER回麗豪酒店<br />(香港沙田大涌橋路34-36號)",
                 duration: "約 1 小時",
                 icon: "fas fa-subway",
                 notes: "可沿途休息坐著睡覺",
@@ -236,8 +236,8 @@ createApp({
               {
                 time: "09:30",
                 timeObj: { hour: 9, minute: 30 },
-                title: "出發至中環碼頭海濱",
-                location: "沙田站 → 中環站",
+                title: "<a href='https://maps.app.goo.gl/VW2xhBQNx9XnzTm27'>出發至中環碼頭海濱</a>",
+                location: "<a href='https://maps.app.goo.gl/nmzgaobZabDeWc666'>沙田站</a> → <a href='https://maps.app.goo.gl/sPy7P56W6fnXpQ6f7'>中環站</a>",
                 duration: "地鐵約 35 分鐘",
                 icon: "fas fa-subway",
                 notes: "轉乘距離短，步行也好走",
@@ -247,7 +247,7 @@ createApp({
                 timeObj: { hour: 10, minute: 15 },
                 endTimeObj: { hour: 11, minute: 30 },
                 title: "搭摩天輪、港邊散步",
-                location: "中環海濱摩天輪",
+                location: "<a href='https://maps.app.goo.gl/wKoDjqpcQ8zCYuESA'>中環站 → 中環海濱摩天輪</a>",
                 duration: "摩天輪約 15 分鐘",
                 icon: "fas fa-circle-notch",
                 notes: "拍照、吃小點心",
@@ -256,15 +256,15 @@ createApp({
                 time: "11:30",
                 timeObj: { hour: 11, minute: 30 },
                 title: "回飯店拿行李",
-                location: "中環 → 沙田",
+                location: "<a href='https://maps.app.goo.gl/sPy7P56W6fnXpQ6f7'>中環</a> → <a href='https://maps.app.goo.gl/nmzgaobZabDeWc666'>沙田</a> → <a href='https://maps.app.goo.gl/YnUyBUbUKhXaKAeS7'>麗豪酒店</a>",
                 duration: "約 40 分鐘",
                 icon: "fas fa-suitcase",
               },
               {
                 time: "13:00",
                 timeObj: { hour: 13, minute: 0 },
-                title: "包車前往機場",
-                location: "沙田 → 香港機場",
+                title: "叫車前往機場",
+                location: "<a href='https://maps.app.goo.gl/KsxDm79o1yKfGqRv7'>沙田 → 香港機場</a>",
                 duration: "約 45 分鐘",
                 icon: "fas fa-shuttle-van",
                 notes: "避免地鐵拉車趕行李",
@@ -295,7 +295,7 @@ createApp({
                 name: "MTR Mobile",
                 description: "港鐵官方 App，查地鐵站轉乘＋時間",
                 icon: "fas fa-subway",
-                officialLink: "https://www.mtr.com.hk/en/customer/mobile/mtr-mobile.html",
+                officialLink: "https://www.mtr.com.hk/ch/customer/services/system_map.html",
                 downloadLink: null,
                 guide: `
                   <h4>香港地鐵使用指南</h4>
@@ -349,21 +349,23 @@ createApp({
                   <ul>
                     <li>機場抵港大堂的顧客服務中心</li>
                     <li>各港鐵站的顧客服務中心</li>
-                    <li>便利店（7-11、OK便利店等）</li>
+                    <li><i class="fa-solid fa-link"></i> <a href='https://www.google.com/maps/search/%E4%BE%BF%E5%88%A9%E5%BA%97/'>便利店（7-11、OK便利店等）</a></li>
                   </ul>
                   
                   <h4>如何使用：</h4>
                   <p>只需將卡片輕觸讀卡器，無需插入。系統會自動扣除相應費用。</p>
                   
                   <div class="tip">
-                    <strong>小貼士：</strong> 八達通卡可以增值（充值）。您可以在便利店、港鐵站或指定的增值機增值，最低增值額為HK$50。
+                    <strong>小貼士：</strong> 八達通卡可以增值（充值）。您可以在便利店、港鐵站或指定的增值機增值，最低增值額為HK$50。<br />
+                    <strong>租用版八達通（常見版本）：</strong>成人卡需首次加值 HK$150（含押金+首次儲值），兒童／長者版本首次預付 HK$50 即含押金，不需證件登記，與悠遊卡很像。<br />
+                    <strong>旅客版買斷制：</strong>無押金，卡片售價HK$39（不含儲值金），可選加值方案，例如：HK$100加值，售價HK$139，使用後剩餘金額可退，但退卡後此卡即失效，無法重用，也可做紀念品。
                   </div>
                   
                   <h4>退卡方式：</h4>
                   <p>離開香港前，您可以在機場或港鐵站的顧客服務中心退還八達通卡，並取回押金和剩餘金額（會扣除手續費HK$9）。</p>
                   
                   <div class="warning">
-                    <strong>注意：</strong> 請保管好您的八達通卡，遺失不補。卡內餘額不足時將無法使用。
+                    <strong>注意：</strong>請保管好您的八達通卡，遺失不補。卡內餘額不足時將無法使用。
                   </div>
                 `,
               },
@@ -371,7 +373,7 @@ createApp({
                 name: "天文台 App",
                 description: "可查每小時降雨機率，夏季必備",
                 icon: "fas fa-cloud-rain",
-                officialLink: "https://www.hko.gov.hk/tc/wxinfo/myobservatory.htm",
+                officialLink: "https://www.hko.gov.hk/tc/index.html",
                 downloadLink: null,
                 guide: `
                   <h4>香港天文台 App 使用指南</h4>
@@ -455,7 +457,7 @@ createApp({
                 name: "香港交通指南",
                 description: "首次訪港必讀交通攻略",
                 icon: "fas fa-map-marked-alt",
-                officialLink: "https://www.discoverhongkong.com/tc/plan/transportation.html",
+                officialLink: "https://www.discoverhongkong.com/tc/plan/traveller-info/getting-around.html",
                 downloadLink:
                   "https://www.discoverhongkong.com/content/dam/dhk/intl/plan/transport/HK-Transport-Guide-tc.pdf",
                 guide: `
