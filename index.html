@@ -133,7 +133,7 @@
                                     <div class="activity-location" v-if="activity.location" v-html="activity.location">
                                         <i class="fas fa-map-marker-alt"></i> {{ activity.location }}
                                     </div>
-                                    <div class="activity-duration" v-if="activity.duration">
+                                    <div class="activity-duration" v-if="activity.duration" v-html="activity.duration">
                                         <i class="fas fa-clock"></i> {{ activity.duration }}
                                     </div>
                                     <div class="activity-notes" v-if="activity.notes" v-html="activity.notes">
@@ -200,7 +200,7 @@
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js?v12"></script>
+    <script src="app.js?v13"></script>
     <script>
 
 const backToTopButton = document.getElementById('back-to-top');

@@ -173,7 +173,7 @@ createApp({
               {
                 time: "09:00",
                 timeObj: { hour: 9, minute: 0 },
-                title: "入園排隊、開園前拍照",
+                title: "入園排隊、開園前拍照<br />(入園開放時間可能在10:00或10:30)",
                 location: "香港迪士尼樂園",
                 icon: "fas fa-camera",
                 notes: "提前 <a href='https://www.hongkongdisneyland.com/zh-hk/mobile-app/'>下載迪士尼App</a> 做行程規劃",
@@ -248,7 +248,7 @@ createApp({
                 endTimeObj: { hour: 11, minute: 30 },
                 title: "搭摩天輪、港邊散步",
                 location: "<a href='https://maps.app.goo.gl/wKoDjqpcQ8zCYuESA'>中環站 → 中環海濱摩天輪</a>",
-                duration: "摩天輪約 15 分鐘",
+                duration: "摩天輪約 15 分鐘<br />(營業時間：星期一至星期四：中午 12:00開始，星期五至星期日上午 11:00開始)",
                 icon: "fas fa-circle-notch",
                 notes: "拍照、吃小點心",
               },
