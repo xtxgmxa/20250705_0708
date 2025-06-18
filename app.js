@@ -166,7 +166,7 @@ createApp({
                 timeObj: { hour: 7, minute: 30 },
                 title: "飯店早餐＋準備出發",
                 location: "<a href='https://maps.app.goo.gl/nwsYXYRxmE9Upbtc7'>麗豪酒店 → 迪士尼</a>",
-                duration: "地鐵轉乘約1小時／或叫UBER約30分鐘",
+                duration: "地鐵轉乘約1小時／或叫UBER約30分鐘<br>(<a href='https://www.uber.com/tw/zh-tw/download/'>如果沒有APP，點選我下載 UBER APP</a>)",
                 icon: "fas fa-utensils",
                 notes: "如搭地鐵：<a href='https://maps.app.goo.gl/ECu5UoE39ME3axK17'>沙田站→南昌轉乘→迪士尼站</a>",
               },
