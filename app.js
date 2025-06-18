@@ -104,7 +104,7 @@ createApp({
                 time: "06:00～08:00",
                 timeObj: { hour: 8, minute: 0 },
                 title: "早餐、出發至比賽會場",
-                location: "看教練是否會提早集合",
+                location: "地點：<a href='https://maps.app.goo.gl/9URdjRoABcxJQo3VA'>東華三院馮黃鳳亭中學</a> 香港瀝源邨瀝源街 3-5號<br>看教練是否會提早集合",
                 icon: "fas fa-utensils",
                 notes: "主力是比賽日",
               },
